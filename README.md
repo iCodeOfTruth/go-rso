@@ -14,11 +14,14 @@ package valorant
 
 import (
     "fmt"
-    "github.com/iCodeOfTruth/go-rso"
     "net/url"
+
+	valorant "github.com/iCodeOfTruth/go-rso"
 )
 
 func main() {
+	valorant.RiotUserAgent = "RiotClient/62.0.1.4852117.4789131 rso-auth (Windows;11;;Professional, x64)" // Set your own user agent
+
 	// Proxy support
 	proxyUrl, _ := url.Parse("http://user:pass@ip:port")
 	client := valorant.New(proxyUrl) // or New(nil) for no proxy
