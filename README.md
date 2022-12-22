@@ -14,7 +14,7 @@ package valorant
 
 import (
     "fmt"
-    "github.com/iCodeOfTruth/go-valorant"
+    "github.com/iCodeOfTruth/go-rso"
     "net/url"
 )
 
