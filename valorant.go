@@ -96,10 +96,15 @@ func (c *Client) Authorize(username, password string) (*UriTokens, error) {
 }
 
 func (c *Client) getPreAuth() (string, error) {
+	nonce, err := GenerateNonce()
+	if err != nil {
+		return "", err
+	}
+
 	bodyMap := map[string]any{
 		"acr_values": "", "claims": "",
 		"client_id": "riot-client", "code_challenge": "",
-		"code_challenge_method": "", "nonce": "1",
+		"code_challenge_method": "", "nonce": nonce,
 		"redirect_uri":  "http://localhost/redirect",
 		"scope":         "openid link ban lol_region account",
 		"response_type": "token id_token",
