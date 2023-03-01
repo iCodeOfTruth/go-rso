@@ -60,6 +60,15 @@ func parseCookies(cookies []string, subs string) (string, error) {
 	return "", fmt.Errorf("could not find %s", subs)
 }
 
+func parseAuthCookie(cookies []string) string {
+	var finalCookie string
+	for _, cookie := range cookies {
+		finalCookie += cookie + "; "
+	}
+
+	return finalCookie
+}
+
 func dialTls(network, addr string) (net.Conn, error) {
 	netConn, err := net.Dial(network, addr)
 	if err != nil {
